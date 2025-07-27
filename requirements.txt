@@ -1,0 +1,9 @@
+qutip
+stable-baselines3[extra]
+gymnasium
+numpy
+scipy
+matplotlib
+qutip-qip
+mlflow
+hydra-core
