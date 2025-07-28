@@ -1,5 +1,5 @@
 # Q-Ctrl-Genesis
-# Quantum Control Reinforcement Learning Project
+# Quantum Control Reinforcement Learning Projec
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](https://www.python.org/)
 [![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.7.0-green?style=flat-square)](https://stable-baselines3.readthedocs.io/en/master/)
