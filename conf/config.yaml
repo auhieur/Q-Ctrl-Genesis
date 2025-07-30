@@ -1,0 +1,41 @@
+# Configuration for Autonomous Mobile Robot (AMR) Adaptive Control with Reinforcement Learning
+
+# Environment parameters
+env:
+  robot_radius: 0.2 # m
+  wheel_base: 0.4 # m
+  max_linear_velocity: 1.0 # m/s
+  max_angular_velocity: 2.0 # rad/s
+  dt_simulation: 0.1 # s
+  max_episode_steps: 500 # Max simulation steps per episode
+  
+  map_size: 10.0 # m x m
+  num_dynamic_obstacles: 2
+  obstacle_radius: 0.3 # m
+  obstacle_speed_max: 0.5 # m/s
+  
+  # Non-linear Dynamic Uncertainties (Friction)
+  initial_coulomb_friction_coeff: 0.5 # Ns/m
+  initial_viscous_friction_coeff: 0.1 # Ns/m
+  max_friction_variation_percent: 0.5 # +/- 50% variation (e.g., 0.5 means friction can vary from 0.25 to 0.75 for coulomb)
+  
+  # Multi-objective reward weights
+  reward_goal_reaching_weight: 100.0
+  reward_collision_penalty_weight: 500.0
+  reward_control_effort_weight: 0.01
+  reward_smoothness_weight: 0.001
+
+# Training parameters
+train:
+  total_timesteps: 500000 # Increased timesteps for complex learning
+
+# Model parameters
+model:
+  policy_type: "MlpPolicy"
+  algorithm: "PPO"
+  tensorboard_log_dir: "./tensorboard_logs/"
+
+# MLflow parameters
+mlflow:
+  # Dynamic run name for AMR experiments, reflecting the project's new focus
+  run_name: "AMR_Adaptive_FricVar${env.max_friction_variation_percent}_Obs${env.num_dynamic_obstacles}"
